@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <p><strong>Comentarios</strong></p>
+  </div>
+  <ul *ngFor="let comment of comments">
+    <li>
+      Nombre: <label>{{ comment.name | upperLower: upperLower }}</label>
+    </li>
+    <li>
+      Comentario:
+      <p>{{ comment.body }}</p>
+    </li>
+  </ul>
+  <button (click)="emmitDate()">Emitir</button>
+
+  <button
+    [ngClass]="{ 'btn btn-primary': upperLower === true }"
+    (click)="change()"
+  >
+    Change
+  </button>
+</div>

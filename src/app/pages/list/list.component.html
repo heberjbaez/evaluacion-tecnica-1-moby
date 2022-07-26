@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Post</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let post of resultList">
+    <td>{{ post.id }}</td>
+    <td>{{ post.title }}</td>
+    <td><a [routerLink]="['/post', post.id]">Ver...</a></td>
+  </tr>
+</table>
