@@ -4,7 +4,9 @@
   <p>
     {{ post.body }}
   </p>
-  <p>Last comment: {{ lastComment }}</p>
+  <p *ngFor="let item of lastComment | keyvalue">
+    Last comment: {{ item.value }}
+  </p>
   <!-- <p>Last comment: {{ lastComment | date }}</p> -->
   <app-comments [post]="post.id"></app-comments>
 </ng-template>
