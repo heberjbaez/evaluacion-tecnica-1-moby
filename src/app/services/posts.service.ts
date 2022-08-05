@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Welcome } from '../interfaces/posts.interface';
+import { Posts } from '../interfaces/posts.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -13,18 +13,18 @@ export class PostsService {
 
   constructor(private http: HttpClient) {}
 
-  getPosts(): Observable<Welcome> {
+  getPosts(): Observable<Posts[]> {
     const url = `${this.apiUrl}/posts`;
-    return this.http.get<Welcome>(url);
+    return this.http.get<Posts[]>(url);
   }
 
-  getPostDetail(id: string): Observable<Welcome> {
+  getPostDetail(id: string): Observable<Posts> {
     const url = `${this.apiUrl}/posts/${id}`;
-    return this.http.get<Welcome>(url);
+    return this.http.get<Posts>(url);
   }
 
-  getPostComments(postId: number): Observable<Welcome> {
+  getPostComments(postId: number): Observable<Posts> {
     const url = `${this.apiUrl}/comments?postId=${postId}`;
-    return this.http.get<Welcome>(url);
+    return this.http.get<Posts>(url);
   }
 }

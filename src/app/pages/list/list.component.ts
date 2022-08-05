@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Welcome } from 'src/app/interfaces/posts.interface';
+import { Posts } from 'src/app/interfaces/posts.interface';
 import { PostsService } from '../../services/posts.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { PostsService } from '../../services/posts.service';
   templateUrl: './list.component.html',
 })
 export class ListComponent implements OnInit {
-  resultList: any = [];
+  resultList: Posts[] = [];
 
   constructor(private postsService: PostsService) {}
 
@@ -19,7 +19,6 @@ export class ListComponent implements OnInit {
     this.postsService.getPosts().subscribe({
       next: (resultList) => {
         this.resultList = resultList;
-        console.log(resultList);
       },
       error: (err) => {
         console.log(err);

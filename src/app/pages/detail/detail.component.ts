@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
-import { Welcome } from 'src/app/interfaces/posts.interface';
+import { Posts } from 'src/app/interfaces/posts.interface';
 import { PostsService } from '../../services/posts.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PostsService } from '../../services/posts.service';
   templateUrl: './detail.component.html',
 })
 export class DetailComponent implements OnInit {
-  post!: Welcome;
+  post!: Posts;
   lastComment: string = '';
 
   constructor(
