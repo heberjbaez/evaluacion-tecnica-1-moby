@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
+import { Comments } from 'src/app/interfaces/comments.interface';
 
 @Component({
   selector: 'app-comments',
@@ -10,11 +11,15 @@ export class CommentsComponent implements OnInit {
   date: Date = new Date();
   upperLower: boolean = true;
 
-  comments: any = [];
+  comments: Comments[] = [];
 
   constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
+    this.emmitComments();
+  }
+
+  emmitComments() {
     this.postsService.getPostComments(this.post).subscribe({
       next: (comments) => {
         this.comments = comments;
