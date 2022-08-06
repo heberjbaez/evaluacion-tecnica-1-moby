@@ -6,11 +6,11 @@ import { AppRouterModule } from './app-router.module';
 
 import { AppComponent } from './app.component';
 
-import { ApiModuleModule } from './pages/api-module.module';
+import { PostModule } from './posts/pages/post.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRouterModule, ApiModuleModule, HttpClientModule],
+  imports: [BrowserModule, AppRouterModule, PostModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

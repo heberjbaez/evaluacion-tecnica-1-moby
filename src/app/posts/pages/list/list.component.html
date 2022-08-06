@@ -1,12 +1,22 @@
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Post</th>
-    <th>Actions</th>
-  </tr>
-  <tr *ngFor="let post of resultList">
-    <td>{{ post.id }}</td>
-    <td>{{ post.title }}</td>
-    <td><a [routerLink]="['/post', post.id]">Ver...</a></td>
-  </tr>
-</table>
+<div class="container">
+  <h1 class="title">List Post</h1>
+  <table class="table">
+    <caption>
+      Post table
+    </caption>
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Post</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of resultList">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td><a [routerLink]="['/post', post.id]">Ver...</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

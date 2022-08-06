@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { Posts } from 'src/app/interfaces/posts.interface';
-import { PostsService } from '../../services/posts.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
+  styles: [
+    `
+      .heading-container {
+        display: flex;
+        justify-content: space-between;
+      }
+    `,
+  ],
 })
 export class DetailComponent implements OnInit {
   post!: Posts;
@@ -23,10 +31,5 @@ export class DetailComponent implements OnInit {
       .subscribe((post) => {
         this.post = post;
       });
-
-    this.postsService.dispatchEmmit.subscribe((date) => {
-      this.lastComment = date;
-      console.log(this.lastComment);
-    });
   }
 }

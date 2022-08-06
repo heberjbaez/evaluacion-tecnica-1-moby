@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Posts } from '../interfaces/posts.interface';
 import { Comments } from '../interfaces/comments.interface';
@@ -8,8 +8,6 @@ import { Comments } from '../interfaces/comments.interface';
   providedIn: 'root',
 })
 export class PostsService {
-  @Output() dispatchEmmit: EventEmitter<any> = new EventEmitter();
-
   private apiUrl: string = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) {}
