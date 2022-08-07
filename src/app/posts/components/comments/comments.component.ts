@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { Comments } from 'src/app/interfaces/comments.interface';
 
@@ -20,7 +20,10 @@ import { Comments } from 'src/app/interfaces/comments.interface';
 })
 export class CommentsComponent implements OnInit {
   @Input() post: number = 0;
+  @Output() onDate: EventEmitter<string> = new EventEmitter();
+
   date: Date = new Date();
+
   upperLower: boolean = true;
 
   comments: Comments[] = [];
@@ -40,6 +43,11 @@ export class CommentsComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+
+  emmitDate() {
+    const strDate: string = this.date.toDateString();
+    this.onDate.emit(strDate.slice(4, 15));
   }
 
   change() {

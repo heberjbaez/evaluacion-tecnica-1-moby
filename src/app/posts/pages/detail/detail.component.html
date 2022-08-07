@@ -2,15 +2,16 @@
   <ng-template #divPostDetail>
     <div class="heading-container">
       <h5>Detail post: {{ post.id }}</h5>
-      <p *ngFor="let item of lastComment | keyvalue">
-        Last comment: {{ item.value }}
-      </p>
+      <div *ngIf="lastComment !== ''">Last comment: {{ lastComment }}</div>
     </div>
     <h2>{{ post.title | titlecase }}</h2>
     <p>
       {{ post.body }}
     </p>
-    <app-comments [post]="post.id"></app-comments>
+    <app-comments
+      (onDate)="viewLastComment($event)"
+      [post]="post.id"
+    ></app-comments>
   </ng-template>
 
   <div *ngIf="!post; else divPostDetail">

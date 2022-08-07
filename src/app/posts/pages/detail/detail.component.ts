@@ -18,7 +18,7 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class DetailComponent implements OnInit {
   post!: Posts;
-  lastComment: string = '';
+  lastComment = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,10 +26,18 @@ export class DetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.viewDetails();
+  }
+
+  viewDetails() {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.postsService.getPostDetail(id)))
       .subscribe((post) => {
         this.post = post;
       });
+  }
+
+  viewLastComment(data: string) {
+    this.lastComment = data;
   }
 }
