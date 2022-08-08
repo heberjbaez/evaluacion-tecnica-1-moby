@@ -6,7 +6,7 @@ import { AppRouterModule } from './app-router.module';
 
 import { AppComponent } from './app.component';
 
-import { PostModule } from './posts/pages/post.module';
+import { PostModule } from './posts/post.module';
 
 @NgModule({
   declarations: [AppComponent],
